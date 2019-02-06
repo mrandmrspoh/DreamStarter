@@ -36,8 +36,8 @@ Area.create(name: 'South Korea')
 Unit.create(abbr: 'SGD', name: 'Singapore dollars')
 
 
-Project.create(name: 'CBot',
-objective: 'Patent-pending - Asia First Bacteria Killing Smart Robot',
+Project.create(name: 'CBot - World First Bacteria Killing Robot',
+objective: 'Patent-pending Smart Robot is Pocket-sized and ready for travel. Meet your new best travel buddy!',
 funding_start_date: '2019-01-01',
 funding_close_date: '2019-03-31',
 funding_target: '100000',
@@ -46,7 +46,7 @@ company_name: 'iBotBot',
 telephone: '+65 1234567',
 email: 'ibotbot@email.com',
 image: 'https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/c_fill,f_auto,h_240,w_320/v1547741776/sfa2rc5epf3dowuhqgiy.jpg',
-video: 'https://youtu.be/yOWw8ZoJPWw',
+video: 'https://www.youtube.com/embed/yOWw8ZoJPWw',
 website: 'www.google.com',
 facebook: 'www.facebook.com',
 content_project: '<h1>Worried about germs on your bed?</h1>
@@ -64,8 +64,8 @@ content_project: '<h1>Worried about germs on your bed?</h1>
 <p>Disclaimer: Information is extracted from Indiegogo.com and modified for illustration purpose of our student project.</p>',
 content_company: '<h1>iBot - Asia leading specialist in innovative cleaning solutions</h1>',
 content_financials: '<h1>Projected Financial statements</h1>',
-faq: '<h1>What happens after the campaign?<h1>
-<p>The CBot campaign ends on Mar 31st, 2019 and we will spend the next quarter putting the finishing touches on the design. In July 2019, the CBot goes into production and manufacturing and we plan to ship the CBot to you by September 2019.',
+faq: '<h1>What happens after the campaign?</h1>
+<p>The CBot campaign ends on Mar 31st, 2019 and we will spend the next quarter putting the finishing touches on the design. In July 2019, the CBot goes into production and manufacturing and we plan to ship the CBot to you by September 2019.</p>',
 sector_id: '2',
 area_id: '1',
 unit_id: '1'
