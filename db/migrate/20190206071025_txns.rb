@@ -1,7 +1,7 @@
-class Transactions < ActiveRecord::Migration[5.2]
+class Txns < ActiveRecord::Migration[5.2]
   def change
 
-    create_table :transactions do |t|
+    create_table :txns do |t|
         t.decimal :amount
         t.references :user
         t.references :project

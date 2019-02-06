@@ -1,4 +1,4 @@
-class Transaction < ActiveRecord::Base
+class Txn < ActiveRecord::Base
     belongs_to :project
     belongs_to :unit
 end
