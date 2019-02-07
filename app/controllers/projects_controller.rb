@@ -1,9 +1,8 @@
 class ProjectsController < ApplicationController
     def index
         puts 'yo'
-        puts params[:sector_ids].length
+        puts params[:sector_ids]
         puts params[:area_ids]
-
         puts Project.all
         @project = Project.all
         @units = Unit.all
@@ -11,10 +10,18 @@ class ProjectsController < ApplicationController
         @areas = Area.all
         if params[:sector_ids] == nil && params[:area_ids] == nil
             puts 'helloooo in if params'
+            @project = Project.all
         elsif params[:sector_ids].length > 1 && params[:area_ids].length > 1
-            @project = @project.filter(params[:sector_ids])
+            @project = Project.where(sector_id: params[:sector_ids], area_id: params[:area_ids])
             puts @project
+        elsif params[:sector_ids].length > 1 && params[:area_ids] == nil
+            @project = Project.where(sector_id: params[:sector_ids])
+        elsif params[:sector_ids].length == nil && params[:area_ids] > 1
+            @project = Project.where(area_id: params[area_ids])
+        else
+            @project = Project.all
         end
+        puts "end"
     end
 
   def new
