@@ -31,9 +31,13 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @units = Unit.all
     @project.user_id = current_user.id
-    @total = Txn.where(project_id: params[:id]).sum(:amount)
+    @total = Txn.where(project_id: params[:id]).sum(:amount).to_i
     @pct_float = @total/@project.funding_target*100
     @pct_total =  @pct_float.to_i
+    @left = @project.funding_target.to_i - @total.to_i
+    @pct_left = 100-@pct_total
+    @days_left =  @project.funding_close_date - Date.today
+    @target = @project.funding_target.to_i
   end
 
 
