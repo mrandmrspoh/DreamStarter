@@ -1,5 +1,10 @@
 class ProjectsController < ApplicationController
-
+    def index
+        @project = Project.all
+        @units = Unit.all
+        @sectors = Sector.all
+        @areas = Area.all
+    end
   def new
     @units = Unit.all
     @sectors = Sector.all
