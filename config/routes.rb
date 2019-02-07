@@ -4,10 +4,12 @@ Rails.application.routes.draw do
 
   # root to: "home#index"
   root to: "projects#index"
-  
+
   get '/' => 'projects#index'
   get '/projects/new' => 'projects#new', as: 'new_project'
   post '/projects' => 'projects#create'
   get '/projects/:id' => 'projects#show' , as: 'project'
 
+
+  post '/projects/:id/txns' => 'txns#create', as: 'new_txn'
 end

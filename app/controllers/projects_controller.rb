@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
       @areas = Area.all
   end
 
+
   def new
     @units = Unit.all
     @sectors = Sector.all
@@ -25,14 +26,17 @@ class ProjectsController < ApplicationController
     end
   end
 
+  
   def show
     @project = Project.find(params[:id])
+    @units = Unit.all
   end
 
+  
 private
 
   def project_params
-    params.require(:project).permit(:name, :objective, :funding_start_date, :funding_close_date, :funding_target, :contact_name, :company_name, :telephone, :email, :image, :video, :website, :facebook, :content_project, :content_company, :content_financials, :content_reports, :faq, :user_id, :sector_id, :area_id, :unit_id, :transaction_ids => [])
+    params.require(:project).permit(:name, :objective, :funding_start_date, :funding_close_date, :funding_target, :contact_name, :company_name, :telephone, :email, :image, :video, :website, :facebook, :content_project, :content_company, :content_financials, :content_reports, :faq, :user_id, :sector_id, :area_id, :unit_id, :txn_ids => [])
   end
 
 end
