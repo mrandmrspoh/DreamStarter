@@ -58,18 +58,6 @@ ActiveRecord::Schema.define(version: 2019_02_06_071025) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "transactions", force: :cascade do |t|
-    t.decimal "amount"
-    t.bigint "user_id"
-    t.bigint "project_id"
-    t.bigint "unit_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_transactions_on_project_id"
-    t.index ["unit_id"], name: "index_transactions_on_unit_id"
-    t.index ["user_id"], name: "index_transactions_on_user_id"
-  end
-
   create_table "txns", force: :cascade do |t|
     t.decimal "amount"
     t.bigint "user_id"
