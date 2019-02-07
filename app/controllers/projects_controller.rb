@@ -1,15 +1,19 @@
 class ProjectsController < ApplicationController
     def index
         puts 'yo'
-        puts params
-        puts 'helloooo'
+        puts params[:sector_ids].length
+        puts params[:area_ids]
+
         puts Project.all
         @project = Project.all
         @units = Unit.all
         @sectors = Sector.all
         @areas = Area.all
-        if params[:project]
-        render plain: params[:project].inspect
+        if params[:sector_ids] == nil && params[:area_ids] == nil
+            puts 'helloooo in if params'
+        elsif params[:sector_ids].length > 1 && params[:area_ids].length > 1
+            @project = @project.filter(params[:sector_ids])
+            puts @project
         end
     end
 
