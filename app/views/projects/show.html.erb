@@ -1,35 +1,49 @@
-<div class="container">
+<div class="container mt-5">
     <div class="row mt-3">
         <div class="col-8">
             <iframe id="player" type="text/html" width="100%" height="100%" src=<%= @project.video %> frameborder="0"></iframe>
         </div>
         <div class="col-4">
-            <h4>FUNDING</h4>
-            <hr>
-            <h1><%= @project.name %></h1>
-            <h2><%= @project.objective %></h2>
-            <br>
-            <h5>PROJECT OWNER</h5>
-            <p><%= @project.contact_name %></p>
-            <p><%= @project.area.name %></p>
-            <hr>
+            <p class="text-danger font-italic m-1"><%= @project.sector.name %></p>
+            <h1 class="font-weight-bold"><%= @project.name %></h1>
+            <h4 class="mt-4"><%= @project.objective %></h4>
+            <p class="mt-5"><%= @project.company_name %>
+                <a href=<%= @project.website %> class="fa fa-home ml-3"></a>
+                <a href=<%= @project.facebook %> class="fa fa-facebook ml-3"></a>
+            </p>
+            <p class="m-1">
+                <i class="fa fa-phone mr-2"></i>
+                <%= @project.telephone %> (<%= @project.contact_name %>)
+            </p>
+            <p class="m-1"><i class="fa fa-envelope-o mr-2"></i> <%= @project.email %></p>
+            <p class="m-1"><%= @project.area.name %></p>
         </div>
     </div>
-
     <br>
-
-    <div id="exTab2">
+    <div id="exTab2" class="mt-5">
         <div class="row">
             <div class="col-8">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#1" data-toggle="tab">Story</a></li>
-                    <li><a href="#2" data-toggle="tab">FAQ</a></li>
+                <ul class="nav nav-pills border-bottom mb-5">
+                    <li class="active"><a href="#1" data-toggle="tab"><h5>PRODUCT</h5></a></li>
+                    <li><a href="#2" data-toggle="tab"><h5>COMPANY</h5></a></li>
+                    <li><a href="#3" data-toggle="tab"><h5>FINANCIALS</h5></a></li>
+                    <li><a href="#4" data-toggle="tab"><h5>REPORTS</h5></a></li>
+                    <li><a href="#5" data-toggle="tab"><h5>FAQ</h5></a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="1">
                         <%= @project.content_project.html_safe %>
                     </div>
                     <div class="tab-pane" id="2">
+                        <%= @project.content_company.html_safe %>
+                    </div>
+                    <div class="tab-pane" id="3">
+                        <%= @project.content_financials.html_safe %>
+                    </div>
+                    <div class="tab-pane" id="4">
+                        <%= @project.content_reports.html_safe %>
+                    </div>
+                    <div class="tab-pane" id="5">
                         <%= @project.faq.html_safe %>
                     </div>
                 </div>
@@ -43,3 +57,4 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
