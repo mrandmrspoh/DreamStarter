@@ -1,10 +1,14 @@
 class ProjectsController < ApplicationController
-    def index
-        @project = Project.all
-        @units = Unit.all
-        @sectors = Sector.all
-        @areas = Area.all
-    end
+
+  before_action :authenticate_user!, :except => [ :index ]
+
+  def index
+      @project = Project.all
+      @units = Unit.all
+      @sectors = Sector.all
+      @areas = Area.all
+  end
+
   def new
     @units = Unit.all
     @sectors = Sector.all
@@ -14,8 +18,11 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.save
-    redirect_to @project
+    if @project.save
+      redirect_to @project
+    else 
+      render 'new'
+    end
   end
 
   def show
