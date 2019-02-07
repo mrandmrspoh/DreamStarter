@@ -68,7 +68,6 @@ faq: '<h1>What happens after the campaign?</h1>
 <p>The CBot campaign ends on Mar 31st, 2019 and we will spend the next quarter putting the finishing touches on the design. In July 2019, the CBot goes into production and manufacturing and we plan to ship the CBot to you by September 2019.</p>',
 sector_id: '2',
 area_id: '1',
-unit_id: '1'
+unit_id: '1',
+user_id: '1'
 )
-
-# Txn.create(amount: 500, project_id: 1)

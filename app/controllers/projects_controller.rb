@@ -21,18 +21,19 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     if @project.save
       redirect_to @project
-    else 
+    else
       render 'new'
     end
   end
 
-  
+
   def show
     @project = Project.find(params[:id])
     @units = Unit.all
+    @project.user_id = current_user.id
   end
 
-  
+
 private
 
   def project_params
