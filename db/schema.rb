@@ -60,12 +60,14 @@ ActiveRecord::Schema.define(version: 2019_02_07_030307) do
 
   create_table "txns", force: :cascade do |t|
     t.decimal "amount"
+    t.bigint "user_id"
     t.bigint "project_id"
     t.bigint "unit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_txns_on_project_id"
     t.index ["unit_id"], name: "index_txns_on_unit_id"
+    t.index ["user_id"], name: "index_txns_on_user_id"
   end
 
   create_table "units", force: :cascade do |t|
