@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # root to: "home#index"
   get '/' => 'projects#index'
+  post "/indexfilter" => 'projects#index' , as: 'projectfilter'
 
   get '/projects/:id' => 'projects#show' , as: 'project'
 end
