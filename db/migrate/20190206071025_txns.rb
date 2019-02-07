@@ -3,7 +3,7 @@ class Txns < ActiveRecord::Migration[5.2]
 
     create_table :txns do |t|
         t.decimal :amount
-        t.references :user
+        # t.references :user
         t.references :project
         t.references :unit
         t.timestamps
@@ -11,3 +11,5 @@ class Txns < ActiveRecord::Migration[5.2]
 
   end
 end
+
+
