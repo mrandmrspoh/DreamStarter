@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/projects/new' => 'projects#new', as: 'new_project'
   post '/projects' => 'projects#create'
   get '/projects/:id' => 'projects#show' , as: 'project'
+  get '/projects/:id/edit' => 'projects#edit' , as: 'edit_project'
 
 
   post '/projects/:id/txns' => 'txns#create', as: 'new_txn'
