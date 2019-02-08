@@ -54,25 +54,20 @@
 
             <div class="col-4">
                 <div class="border bg-light p-4">
-            <h4 class="font-weight-bold"> We target to raise SGD <%= number_with_delimiter(@target, :delimiter => ',') %>.</h4>
-    <div class="clearfix">
-        <span class="float-left h5"><%= number_with_delimiter(@total, :delimiter => ',') %> SGD raised</span>
-        <span class="float-right h5"><%= number_with_delimiter(@left, :delimiter => ',') %> SGD left </span>
-    </div>
-    <div class="progress m-2">
-        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow=<%= @pct_total %>
-      aria-valuemin="0" aria-valuemax="100" style="width:<%= @pct_total %>%">
-        </div>
-    </div>
-    <div class="clearfix mb-5">
-        <span class="float-left h5"><%= @pct_total %>% of target</span>
-        <span class="float-right h5"><%= @days_left %> days left </span>
-    </div>
-
-
-
-
-
+                    <h4 class="font-weight-bold"> We target to raise SGD <%= number_with_delimiter(@target, :delimiter => ',') %>.</h4>
+                    <div class="clearfix">
+                        <span class="float-left h5"><%= number_with_delimiter(@total, :delimiter => ',') %> SGD raised</span>
+                        <span class="float-right h5"><%= number_with_delimiter(@left, :delimiter => ',') %> SGD left </span>
+                    </div>
+                    <div class="progress m-2">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow=<%= @pct_total %>
+                      aria-valuemin="0" aria-valuemax="100" style="width:<%= @pct_total %>%">
+                        </div>
+                    </div>
+                    <div class="clearfix mb-5">
+                        <span class="float-left h5"><%= @pct_total %>% of target</span>
+                        <span class="float-right h5"><%= @days_left %> days left </span>
+                    </div>
 
                     <%= form_with scope: :txn, url: new_txn_path, local: true do |form| %>
                         <input type="hidden" name="txn[project_id]" id="txn_project_id" value=<%= @project.id %>>
@@ -87,12 +82,23 @@
                         </p>
 
                     <% end %>
-                <div>
+                </div>
+                <% if @project.user_id == 1 %>
+                    <div class="border h3 mt-5">
+                        <p>For site administrators only:</p>
+                        <%= link_to 'Edit', edit_project_path(@project) %>
+                        <br>
+                        <%= link_to 'Delete', project_path(@project),
+                                method: :delete,
+                                data: { confirm: 'Are you sure?' } %>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>
 
 </div>
+
 
 
 
