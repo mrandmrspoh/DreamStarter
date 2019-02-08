@@ -2,14 +2,29 @@ class ProjectsController < ApplicationController
 
   before_action :authenticate_user!, :except => [ :index ]
 
-  def index
 
-      @project = Project.all
-      @units = Unit.all
-      @sectors = Sector.all
-      @areas = Area.all
+    def index
+        puts params[:sector_ids]
+        puts params[:area_ids]
+        # puts Project.all
+        # @project = Project.all
+        @units = Unit.all
+        @sectors = Sector.all
+        @areas = Area.all
+        puts params[:sector_ids]
+        puts params[:area_ids]
 
-  end
+        if (params[:sector_ids] == nil && params[:area_ids] == nil)
+            @project = Project.all
+        elsif (params[:sector_ids].length > 1 && params[:area_ids].length > 1)
+            @project = Project.where(sector_id: params[:sector_ids], area_id: params[:area_ids])
+        elsif (params[:area_ids].length > 1)
+            @project = Project.where(area_id: params[:area_ids])
+        elsif (params[:sector_ids].length > 1 )
+            @project = Project.where(sector_id: params[:sector_ids])
+        end
+    end
+
 
 
   def new
