@@ -3,23 +3,24 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!, :except => [ :index ]
 
     def index
-        # puts params[:sector_ids]
-        # puts params[:area_ids]
+        puts params[:sector_ids]
+        puts params[:area_ids]
         # puts Project.all
-        @project = Project.all
+        # @project = Project.all
         @units = Unit.all
         @sectors = Sector.all
         @areas = Area.all
-        if params[:sector_ids] == nil && params[:area_ids] == nil
+        puts params[:sector_ids]
+        puts params[:area_ids]
+
+        if (params[:sector_ids] == nil && params[:area_ids] == nil)
             @project = Project.all
-        elsif params[:sector_ids].length > 1 && params[:area_ids].length > 1
+        elsif (params[:sector_ids].length > 1 && params[:area_ids].length > 1)
             @project = Project.where(sector_id: params[:sector_ids], area_id: params[:area_ids])
-        elsif params[:sector_ids].length > 1 && params[:area_ids] == nil
+        elsif (params[:area_ids].length > 1)
+            @project = Project.where(area_id: params[:area_ids])
+        elsif (params[:sector_ids].length > 1 )
             @project = Project.where(sector_id: params[:sector_ids])
-        elsif params[:sector_ids].length == nil && params[:area_ids] > 1
-            @project = Project.where(area_id: params[area_ids])
-        else
-            @project = Project.all
         end
     end
 

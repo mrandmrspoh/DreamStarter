@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root to: "projects#index"
 
   get '/' => 'projects#index'
-  post "/indexfilter" => 'projects#index' , as: 'projectfilter'
+  post "/" => 'projects#index' , as: 'projectfilter'
   get '/projects/new' => 'projects#new', as: 'new_project'
   post '/projects' => 'projects#create'
   get '/projects/:id' => 'projects#show' , as: 'project'

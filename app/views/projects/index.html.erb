@@ -27,7 +27,7 @@
     <div class="col-2">
         <h5>Filter Project</h5>
         <h6>Sector</h6>
-        <%= form_with model: @sector, url: projectfilter_path do |f|  %>
+        <%= form_with model: @sector, url: projectfilter_path, local: true do |f|  %>
         <%= f.collection_check_boxes :sector_ids, @sectors,:id,:name do |b| %>
         <div class='form-check'>
             <%=b.check_box(class: "form-check-input")  %>
@@ -36,7 +36,7 @@
         <% end%>
         <br>
         <h6>Country</h6>
-        <%= form_with model: @area, url: projectfilter_path do |f|  %>
+        <%= form_with model: @area, url: projectfilter_path, local: true do |f|  %>
         <%= f.collection_check_boxes :area_ids, @areas,:id,:name do |b| %>
         <div class='form-check'>
             <%=b.check_box(class: "form-check-input")  %>
@@ -45,8 +45,9 @@
         <% end%>
         <br>
         <button type="submit" class="btn btn-primary">Filter</button>
+
         <%end%>
-        <% end %>
+        <% end %><br>
     </div>
 
     <div class="col-8">
