@@ -36,7 +36,7 @@ Area.create(name: 'South Korea')
 Unit.create(abbr: 'SGD', name: 'Singapore dollars')
 
 Project.create(name: 'CBot - World First Bacteria Killing Robot',
-objective: 'Patent-pending Smart Robot is Pocket-sized and ready for travel. Meet your new best travel buddy!',
+objective: 'Smart Robot is Pocket-sized and ready for travel. Meet your new best travel buddy!',
 funding_start_date: '2019-01-01',
 funding_close_date: '2019-03-31',
 funding_target: '100000',
