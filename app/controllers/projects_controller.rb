@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
         # puts params[:sector_ids]
         # puts params[:area_ids]
         # puts Project.all
-        @project = Project.all
+
         @units = Unit.all
         @sectors = Sector.all
         @areas = Area.all
@@ -18,8 +18,7 @@ class ProjectsController < ApplicationController
             @project = Project.where(sector_id: params[:sector_ids])
         elsif params[:sector_ids].length == nil && params[:area_ids] > 1
             @project = Project.where(area_id: params[area_ids])
-        else
-            @project = Project.all
+
         end
     end
 
