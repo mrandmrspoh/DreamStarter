@@ -71,3 +71,34 @@ area_id: '1',
 unit_id: '1',
 user_id: '1'
 )
+Project.create(name: 'Veterinarian Bills and Medical Supplies',
+objective: 'Help save our street dogs!',
+funding_start_date: '2019-01-01',
+funding_close_date: '2019-03-31',
+funding_target: '200000',
+contact_name: 'goodBoi',
+company_name: 'goodBoi Inc',
+telephone: '+65 1234567',
+email: 'goodBoi@goodBoi.com',
+image: 'https://www.mercurynews.com/wp-content/uploads/2018/08/Golden-retriever.jpg?w=810',
+video: 'https://i.ytimg.com/vi_webp/9i2vqllPT5M/sddefault.webp&quot',
+website: 'www.google.com',
+facebook: 'https://www.facebook.com/',
+content_project: '<h1>Veterinarian Bills and Medical Supplies</h1>
+<h3>Save our Dogs</h3>
+<h3>Why help?</h3>
+<p>With over 150 dogs under our direct care, we incur pretty large medical bills. In 2016-2017, our total cost of veterinarian services was $386,741 while the medical supplies cost $28,236. This works out to more than $34,000 a month.<br>
+
+In addition to the medical needs of dogs directly under our care, we also provide veterinary care to injured dogs rescued by third parties. <br>
+
+So we really need your help! Your donations will go towards vet bills for dogs that are ill, dogs requiring vaccinations, anti-flea and anti-tick care, as well as stocking the shelters with medical supplies. Thank you for giving all the dogs a fresh start.</p>',
+content_company: '<h1>Save Our Street Dogs</h1>',
+content_financials: '<h1>Projected Financial statements</h1>',
+content_reports: '<h1>Reports</h1>',
+faq: "<h1>About the Charity</h1>
+<p>SOSD is a volunteer-run organisation dedicated to the welfare of Singapore's many street dogs. Our mission is to eliminate cruelty and abandonment of animals, enhancing their welfare, and improve the lives of animals and humans, through rescue, education and advocacy. To find out more, please visit the website www.sosd.org.sg/ To follow us on Facebook, please click on the following link www.facebook.com/SOSDSingapore/</p>",
+sector_id: '6',
+area_id: '1',
+unit_id: '1',
+user_id: '1'
+)
