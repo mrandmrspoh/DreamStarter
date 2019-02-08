@@ -1,18 +1,55 @@
-<h1>hello world</h1>
 
-
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar w/ text</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      Navbar text with an inline element
+    </span>
+  </div>
+</nav>
+<br><br>
 <div class="container">
   <div class="row">
     <div class="col-2">
-        <% @sectors.each do |sector| %>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id=<%= sector.name %>>
-              <label class="form-check-label" for="defaultCheck1">
-                <%= sector.name %>
-              </label>
-            </div>
+        <h5>Filter Project</h5>
+        <h6>Sector</h6>
+        <%= form_with model: @sector, url: projectfilter_path, local: true do |f|  %>
+        <%= f.collection_check_boxes :sector_ids, @sectors,:id,:name do |b| %>
+        <div class='form-check'>
+            <%=b.check_box(class: "form-check-input")  %>
+            <%=b.label(class: "form-check-label")%>
+        </div>
+        <% end%>
+        <br>
+        <h6>Country</h6>
+        <%= form_with model: @area, url: projectfilter_path, local: true do |f|  %>
+        <%= f.collection_check_boxes :area_ids, @areas,:id,:name do |b| %>
+        <div class='form-check'>
+            <%=b.check_box(class: "form-check-input")  %>
+            <%=b.label(class: "form-check-label")%>
+        </div>
+        <% end%>
+        <br>
+        <button type="submit" class="btn btn-primary">Filter</button>
+
         <%end%>
+        <% end %><br>
     </div>
+
     <div class="col-8">
       <% @project.each do |project| %>
         <div class="card" style="width: 18rem;">
@@ -21,14 +58,15 @@
             <div class="progress">
               <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-
             <h5 class="card-title"><%= project.name %></h5>
+            <p class="card-text"><%= project.company_name %></p>
             <p class="card-text"><%= project.objective %></p>
-            <a href=`/project/<%= project.id %>` class="btn btn-primary">Find out</a>
+            <a href="/projects/<%= project.id %>" class="btn btn-primary">Find out</a>
           </div>
         </div>
     <% end %>
     </div>
+
     <div class="col-2">
 
     </div>

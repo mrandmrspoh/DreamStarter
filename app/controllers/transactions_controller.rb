@@ -19,9 +19,6 @@ private
 
   def transaction_params
     params.require(:transaction).permit(:date, :amount, :user_id, :project_id, :unit_id)
-
-
-
         user_id, :sector_id, :area_id, :unit_id, :transaction_ids => [])
   end
 

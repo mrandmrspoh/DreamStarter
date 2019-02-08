@@ -35,9 +35,8 @@ Area.create(name: 'South Korea')
 
 Unit.create(abbr: 'SGD', name: 'Singapore dollars')
 
-
 Project.create(name: 'CBot - World First Bacteria Killing Robot',
-objective: 'Patent-pending Smart Robot is Pocket-sized and ready for travel. Meet your new best travel buddy!',
+objective: 'Smart Robot is Pocket-sized and ready for travel. Meet your new best travel buddy!',
 funding_start_date: '2019-01-01',
 funding_close_date: '2019-03-31',
 funding_target: '100000',
@@ -69,5 +68,6 @@ faq: '<h1>What happens after the campaign?</h1>
 <p>The CBot campaign ends on Mar 31st, 2019 and we will spend the next quarter putting the finishing touches on the design. In July 2019, the CBot goes into production and manufacturing and we plan to ship the CBot to you by September 2019.</p>',
 sector_id: '2',
 area_id: '1',
-unit_id: '1'
+unit_id: '1',
+user_id: '1'
 )
