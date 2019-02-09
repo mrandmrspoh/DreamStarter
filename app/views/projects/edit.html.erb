@@ -1,127 +1,117 @@
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-</head>
-<body>
-
 <%= form_with scope: :project, model: @project, local: true do |form| %>
 
-    <div class="container">
-        <h3>PROJECT DETAILS</h3>
-            <div class="form-group">
-                <%= form.label :Name %><br>
-                <%= form.text_field :name, class:'form-control'%>
-            </div>
+  <div class="container" id="projectnew">
+      <h3>PROJECT DETAILS</h3>
+          <div class="form-group">
+              <%= form.label :Name %><br>
+              <%= form.text_field :name, class:'form-control'%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :Objective %><br>
-                <%= form.text_area :objective, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :Objective %><br>
+              <%= form.text_area :objective, class:"form-control"%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :"Project Content" %><br>
-                <%= form.text_area :content_project, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :"Project Content" %><br>
+              <%= form.text_area :content_project, class:"form-control"%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :"Funding Start Date" %><br>
-                <%= form.date_field :funding_start_date, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :"Funding Start Date" %><br>
+              <%= form.date_field :funding_start_date, class:"form-control"%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :"Funding Close Date" %><br>
-                <%= form.date_field :funding_close_date, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :"Funding Close Date" %><br>
+              <%= form.date_field :funding_close_date, class:"form-control"%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :"Fund Target Amount" %><br>
-                <div class="input-group-prepend">
-                    <%= form.collection_select :unit_id, @units, :id, :abbr, class:"form-control" %>
-                    <%= form.text_field :funding_target, class:"form-control"%>
-                </div>
-            </div>
+          <div class="form-group">
+              <%= form.label :"Fund Target Amount" %><br>
+              <div class="input-group-prepend">
+                  <%= form.collection_select :unit_id, @units, :id, :abbr, class:"form-control" %>
+                  <%= form.text_field :funding_target, class:"form-control"%>
+              </div>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :"Contact Name" %><br>
-                <%= form.text_field :contact_name, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :"Contact Name" %><br>
+              <%= form.text_field :contact_name, class:"form-control"%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :"Company Name" %><br>
-                <%= form.text_field :company_name, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :"Company Name" %><br>
+              <%= form.text_field :company_name, class:"form-control"%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :"Sector" %><br>
-                <%= form.collection_select :sector_id, @sectors, :id, :name %>
-            </div>
+          <div class="form-group">
+              <%= form.label :"Sector" %><br>
+              <%= form.collection_select :sector_id, @sectors, :id, :name %>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :"Country" %><br>
-                <%= form.collection_select :area_id, @areas, :id, :name %>
-            </div>
+          <div class="form-group">
+              <%= form.label :"Country" %><br>
+              <%= form.collection_select :area_id, @areas, :id, :name %>
+          </div>
 
 
-            <div class="form-group">
-                <%= form.label :Telephone %><br>
-                <%= form.text_field :telephone, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :Telephone %><br>
+              <%= form.text_field :telephone, class:"form-control"%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :Email %><br>
-                <%= form.text_field :email, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :Email %><br>
+              <%= form.text_field :email, class:"form-control"%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :Image %><br>
-                <%= form.text_field :image, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :Image %><br>
+              <%= form.text_field :image, class:"form-control"%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :Video %><br>
-                <%= form.text_field :video, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :Video %><br>
+              <%= form.text_field :video, class:"form-control"%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :Website %><br>
-                <%= form.text_field :website, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :Website %><br>
+              <%= form.text_field :website, class:"form-control"%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :Facebook %><br>
-                <%= form.text_field :facebook, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :Facebook %><br>
+              <%= form.text_field :facebook, class:"form-control"%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :"About" %><br>
-                <%= form.text_area :content_company, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :"About" %><br>
+              <%= form.text_area :content_company, class:"form-control"%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :Financials %><br>
-                <%= form.text_area :content_financials, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :Financials %><br>
+              <%= form.text_area :content_financials, class:"form-control"%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :Reports %><br>
-                <%= form.text_area :content_reports, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :Reports %><br>
+              <%= form.text_area :content_reports, class:"form-control"%>
+          </div>
 
-            <div class="form-group">
-                <%= form.label :FAQ %><br>
-                <%= form.text_area :faq, class:"form-control"%>
-            </div>
+          <div class="form-group">
+              <%= form.label :FAQ %><br>
+              <%= form.text_area :faq, class:"form-control"%>
+          </div>
 
-            <div class>
-                <%= form.submit class: "btn btn-primary" %>
-            </div>
+          <div class>
+              <%= form.submit "Update Project", class: "btn btn-primary" %>
+          </div>
 
-    </div>
+          <%= link_to 'Back', root_path %>
+
+  </div>
 
 <% end %>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  </body>

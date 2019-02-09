@@ -4,15 +4,21 @@ class ProjectsController < ApplicationController
 
 
     def index
-        puts params[:sector_ids]
-        puts params[:area_ids]
+        # puts params[:sector_ids]
+        # puts params[:area_ids]
         # puts Project.all
-        # @project = Project.all
         @units = Unit.all
         @sectors = Sector.all
         @areas = Area.all
-        puts params[:sector_ids]
-        puts params[:area_ids]
+        # userid = request.body['user_id']
+        # puts 'hellooooo world'
+        # puts userid
+        # if current_user.id == nil
+        #     @user_id = 'Login'
+        # else
+        #     @user_id = current_user.id
+        # end
+        # puts user_id
 
         if (params[:sector_ids] == nil && params[:area_ids] == nil)
             @project = Project.all
@@ -26,13 +32,13 @@ class ProjectsController < ApplicationController
     end
 
 
+  def new
 
-    def new
-        @units = Unit.all
-        @sectors = Sector.all
-        @areas = Area.all
-    end
-
+    @units = Unit.all
+    @sectors = Sector.all
+    @areas = Area.all
+    @project.user_id = current_user.id
+  end
 
     def create
         @units = Unit.all
@@ -42,6 +48,7 @@ class ProjectsController < ApplicationController
         @project = Project.new(project_params)
         @project.user_id = current_user.id
 
+
         if @project.save
             redirect_to @project
         else
@@ -49,7 +56,6 @@ class ProjectsController < ApplicationController
         puts @project.errors.messages.inspect
         end
   end
-
 
     def show
         @project = Project.find(params[:id])
