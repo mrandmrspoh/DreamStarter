@@ -40,40 +40,57 @@ class ProjectsController < ApplicationController
     @project.user_id = current_user.id
   end
 
+    def create
+        @units = Unit.all
+        @sectors = Sector.all
+        @areas = Area.all
 
-  def create
+        @project = Project.new(project_params)
+        @project.user_id = current_user.id
 
-    @units = Unit.all
-    @sectors = Sector.all
-    @areas = Area.all
 
-    @project = Project.new(project_params)
-    @project.user_id = current_user.id
+        if @project.save
+            redirect_to @project
+        else
+        render 'new'
+        puts @project.errors.messages.inspect
+        end
+  end
 
-    if @project.save
-      redirect_to @project
-    else
-      render 'new'
-      puts @project.errors.messages.inspect
+    def show
+        @project = Project.find(params[:id])
+        @units = Unit.all
+        @project.user_id = current_user.id
+        @total = Txn.where(project_id: params[:id]).sum(:amount).to_i
+        @pct_float = @total/@project.funding_target*100
+        @pct_total =  @pct_float.to_i
+        @left = @project.funding_target.to_i - @total.to_i
+        @pct_left = 100-@pct_total
+        @days_left =  @project.funding_close_date - Date.today
+        @target = @project.funding_target.to_i
+  end
+
+
+    def edit
+        @units = Unit.all
+        @sectors = Sector.all
+        @areas = Area.all
+        @project = Project.find(params[:id])
     end
 
-  end
 
+    def update
+        @project = Project.find(params[:id])
 
-  def show
+        @project.update(project_params)
+        redirect_to @project
+    end
 
-    @project = Project.find(params[:id])
-    @units = Unit.all
-    @project.user_id = current_user.id
-    @total = Txn.where(project_id: params[:id]).sum(:amount).to_i
-    @pct_float = @total/@project.funding_target*100
-    @pct_total =  @pct_float.to_i
-    @left = @project.funding_target.to_i - @total.to_i
-    @pct_left = 100-@pct_total
-    @days_left =  @project.funding_close_date - Date.today
-    @target = @project.funding_target.to_i
-
-  end
+    def destroy
+        @project = Project.find(params[:id])
+        @project.destroy
+        redirect_to root_path
+    end
 
 
 private
