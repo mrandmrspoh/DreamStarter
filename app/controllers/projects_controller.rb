@@ -10,15 +10,12 @@ class ProjectsController < ApplicationController
         @units = Unit.all
         @sectors = Sector.all
         @areas = Area.all
-        # userid = request.body['user_id']
-        # puts 'hellooooo world'
-        # puts userid
-        # if current_user.id == nil
-        #     @user_id = 'Login'
-        # else
-        #     @user_id = current_user.id
-        # end
-        # puts user_id
+        if !current_user
+            @navuser = 'Login'
+        else
+            @navuser = "Hello " + (User.where(id: current_user.id).to_s).chomp("@")
+            puts @navuser
+        end
 
         if (params[:sector_ids] == nil && params[:area_ids] == nil)
             @project = Project.all
@@ -29,6 +26,7 @@ class ProjectsController < ApplicationController
         elsif (params[:sector_ids].length > 1 )
             @project = Project.where(sector_id: params[:sector_ids])
         end
+        puts @project
     end
 
 
@@ -45,8 +43,14 @@ class ProjectsController < ApplicationController
         @sectors = Sector.all
         @areas = Area.all
 
-        @project = Project.new(project_params)
-        @project.user_id = current_user.id
+
+  def create
+
+    @units = Unit.all
+    @sectors = Sector.all
+    @areas = Area.all
+    @project = Project.new(project_params)
+    @project.user_id = current_user.id
 
 
         if @project.save
@@ -99,5 +103,7 @@ private
 
     params.require(:project).permit(:name, :objective, :funding_start_date, :funding_close_date, :funding_target, :contact_name, :company_name, :telephone, :email, :image, :video, :website, :facebook, :content_project, :content_company, :content_financials, :content_reports, :faq, :user_id, :sector_id, :area_id, :unit_id, :txn_ids => [])
   end
-
+    def navuser_params
+        params.require(:navuser).permit(:email)
+    end
 end
