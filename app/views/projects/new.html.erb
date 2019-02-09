@@ -1,10 +1,4 @@
 
-<head>  
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-</head>
-<body>
 
 <%= form_with scope: :project, url: projects_path, local: true do |form| %>
 
@@ -34,13 +28,13 @@
                 <%= form.label :"Funding Close Date" %><br>
                 <%= form.date_field :funding_close_date, class:"form-control"%>
             </div>
-    
-            <div class="form-group">             
-                <%= form.label :"Fund Target Amount" %><br>  
+
+            <div class="form-group">
+                <%= form.label :"Fund Target Amount" %><br>
                 <div class="input-group-prepend">
                     <%= form.collection_select :unit_id, @units, :id, :abbr, class:"form-control" %>
                     <%= form.text_field :funding_target, class:"form-control"%>
-                </div>                                      
+                </div>
             </div>
 
             <div class="form-group">
@@ -54,12 +48,12 @@
             </div>
 
             <div class="form-group">
-                <%= form.label :"Sector" %><br>                
+                <%= form.label :"Sector" %><br>
                 <%= form.collection_select :sector_id, @sectors, :id, :name %>
             </div>
 
             <div class="form-group">
-                <%= form.label :"Country" %><br>                
+                <%= form.label :"Country" %><br>
                 <%= form.collection_select :area_id, @areas, :id, :name %>
             </div>
 
@@ -92,7 +86,7 @@
             <div class="form-group">
                 <%= form.label :Facebook %><br>
                 <%= form.text_field :facebook, class:"form-control"%>
-            </div>           
+            </div>
 
             <div class="form-group">
                 <%= form.label :"About" %><br>
@@ -122,6 +116,3 @@
 
 <% end %>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  </body>
