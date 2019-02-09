@@ -15,8 +15,5 @@ Rails.application.routes.draw do
   patch '/projects/:id' => 'projects#update'
   delete '/projects/:id' => 'projects#destroy'
 
-
-
-
   post '/projects/:id/txns' => 'txns#create', as: 'new_txn'
 end
