@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dreamstarter</title>
+    <title>Dream-Starter</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
   </head>
 
   <body>
@@ -26,8 +25,7 @@
                     <a class="nav-link" href="#">Admin Create</a>
                 </li>
                 <li class="nav-item my-lg-0">
-                    <a class="nav-link" href="/users/sign_in">Login/Logout</a>
-
+                    <a class="nav-link" href="/users/sign_in"><%= @navuser %></a>
                 </li>
             </ul>
             </div>
