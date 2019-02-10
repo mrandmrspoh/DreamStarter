@@ -1,6 +1,6 @@
 
 
-<div class="container float-left">
+<div class="container float-left" id="indx" >
   <div class="row">
     <div class="col-sm-3 ">
         <h4>Filter Project</h4>
@@ -30,8 +30,8 @@
     <div class="col-9">
         <div class="row">
           <% @project.each do |project| %>
-          <div class='col-6'>
-            <div class="card d-inline-block " style=" height:30rem;">
+          <div class='col-sm-6  col-lg-4'>
+            <div class="card d-inline-block " style=" height:33rem;">
               <img class="card-img-top" src=<%= project.image %> alt="Card image cap"style=" height:15rem;">
               <div class="card-body">
                 <div class="progress">
