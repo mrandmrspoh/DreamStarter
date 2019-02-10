@@ -81,7 +81,7 @@ company_name: 'goodBoi Inc',
 telephone: '+65 1234567',
 email: 'goodBoi@goodBoi.com',
 image: 'https://www.mercurynews.com/wp-content/uploads/2018/08/Golden-retriever.jpg?w=810',
-video: 'https://i.ytimg.com/vi_webp/9i2vqllPT5M/sddefault.webp&quot',
+video: 'https://www.youtube.com/embed/9i2vqllPT5M',
 website: 'www.google.com',
 facebook: 'https://www.facebook.com/',
 content_project: '<h1>Veterinarian Bills and Medical Supplies</h1>
@@ -103,3 +103,42 @@ unit_id: '1',
 user_id: '1'
 )
 
+Project.create(name: 'MOFT - World’s First Invisible Laptop Stand',
+objective: 'An adhesive laptop stand makes you move freely and enjoy ergonomic comfort anywhere',
+funding_start_date: '2019-01-01',
+funding_close_date: '2019-05-31',
+funding_target: '2000000',
+contact_name: 'MOFT',
+company_name: 'MOFT Inc',
+telephone: '+65 1234567',
+email: 'abc@goodBoi.com',
+image: 'https://ksr-ugc.imgix.net/assets/023/696/183/306258a4e983529a89fe6d09a1904fce_original.gif?ixlib=rb-1.1.0&w=680&fit=max&v=1546591799&auto=format&gif-q=50&q=92&s=cfe480c7bb7d2d025a5c3f9ce7d34a4b',
+video: 'https://www.youtube.com/embed/STnS1AwPgxg',
+website: 'www.google.com',
+facebook: 'https://www.facebook.com/',
+content_project: '<h1>Save your neck</h1>
+
+<p>The laptop is a great tool for working. But its low screen positioning and fixed keyboard forces users into awkward postures, causing neck-and-shoulder pain and diminished comfort.<br><br>
+
+Problem is, the traditional laptop stand is too bulky to carry around and often takes a lot of time to set up - turning it into a productivity-killer. <br><br>
+
+
+We set out to make sure every road warrior can work absolutely anywhere with ease and comfort. Thats where MOFT comes in. It’s lightweight, portable, convenient, patented and feels "invisible" ——that it is MOFT invisible stand.<br><br>
+
+
+We truly believe“Good design is invisible" and put this philosophy into creating MOFT: unseen when attached, unfelt when worked on, unnoticed when carried. <br><br>
+
+You will never be troubled by forgetting to take a laptop stand when going out, because MOFT acts as a natural, seamless appendage of your computer.<br><br>
+
+
+Nothing extra, only simplicity and reliability. Everything is "feeling right"  and you don’t even notice it.</p>',
+content_company: '<h1>Save your neck</h1>',
+content_financials: '<h1>Projected Financial statements</h1>',
+content_reports: '<h1>Reports</h1>',
+faq: "<h1>Save your neck</h1>
+<p>Hi</p>",
+sector_id: '7',
+area_id: '5',
+unit_id: '1',
+user_id: '1'
+)

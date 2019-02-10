@@ -4,16 +4,15 @@ class ProjectsController < ApplicationController
 
 
     def index
-        # puts params[:sector_ids]
-        # puts params[:area_ids]
-        # puts Project.all
+
         @units = Unit.all
         @sectors = Sector.all
         @areas = Area.all
         if !current_user
             @navuser = 'Login'
         else
-            @navuser = "Hello " + (User.where(id: current_user.id).to_s).chomp("@")
+            @navuser = "Hello " + current_user.email
+            @navuser = @navuser.slice(0..(@navuser.index("@")-1))
             puts @navuser
         end
 
@@ -36,12 +35,9 @@ class ProjectsController < ApplicationController
     @sectors = Sector.all
     @areas = Area.all
     @project.user_id = current_user.id
+    @navuser = "Hello " + current_user.email
+    @navuser = @navuser.slice(0..(@navuser.index("@")-1))
   end
-
-    def create
-        @units = Unit.all
-        @sectors = Sector.all
-        @areas = Area.all
 
 
   def create
@@ -51,7 +47,8 @@ class ProjectsController < ApplicationController
     @areas = Area.all
     @project = Project.new(project_params)
     @project.user_id = current_user.id
-
+    @navuser = "Hello " + current_user.email
+    @navuser = @navuser.slice(0..(@navuser.index("@")-1))
 
         if @project.save
             redirect_to @project
@@ -72,6 +69,8 @@ class ProjectsController < ApplicationController
         @pct_left = 100-@pct_total
         @days_left =  @project.funding_close_date - Date.today
         @target = @project.funding_target.to_i
+        @navuser = "Hello " + current_user.email
+        @navuser = @navuser.slice(0..(@navuser.index("@")-1))
   end
 
 
@@ -80,12 +79,13 @@ class ProjectsController < ApplicationController
         @sectors = Sector.all
         @areas = Area.all
         @project = Project.find(params[:id])
+        @navuser = "Hello " + current_user.email
+        @navuser = @navuser.slice(0..(@navuser.index("@")-1))
     end
 
 
     def update
         @project = Project.find(params[:id])
-
         @project.update(project_params)
         redirect_to @project
     end
