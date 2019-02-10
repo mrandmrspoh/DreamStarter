@@ -10,10 +10,16 @@ class ProjectsController < ApplicationController
         @units = Unit.all
         @sectors = Sector.all
         @areas = Area.all
+        @total = Txn.all
+        puts "totallllll"
+        puts @total
+        # @total = Txn.where(project_id: params[:id]).sum(:amount).to_i
+
         if !current_user
             @navuser = 'Login'
         else
-            @navuser = "Hello " + (User.where(id: current_user.id).to_s).chomp("@")
+            @navuser = "Hello " + current_user.email
+            @navuser = @navuser.slice(0..(@navuser.index("@")-1))
             puts @navuser
         end
 
