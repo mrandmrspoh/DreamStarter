@@ -64,9 +64,13 @@ ActiveRecord::Schema.define(version: 2019_02_11_015959) do
     t.bigint "user_id"
     t.bigint "project_id"
     t.bigint "unit_id"
+    t.bigint "area_id"
+    t.bigint "sector_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_txns_on_area_id"
     t.index ["project_id"], name: "index_txns_on_project_id"
+    t.index ["sector_id"], name: "index_txns_on_sector_id"
     t.index ["unit_id"], name: "index_txns_on_unit_id"
     t.index ["user_id"], name: "index_txns_on_user_id"
   end
