@@ -3,7 +3,8 @@ class TxnsController < ApplicationController
   def create
     @txn = Txn.new(txn_params)
     @project = @txn.project
-    @project.funded_amt = @project.funded_amt.to_i+ @txn.amount
+    @project.funded_amt = @project.funded_amt.to_i + @txn.amount
+
     @project.save
     @txn.user_id = current_user.id
     @txn.project_id = @project.id
