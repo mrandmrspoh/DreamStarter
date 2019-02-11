@@ -16,4 +16,9 @@ Rails.application.routes.draw do
   delete '/projects/:id' => 'projects#destroy'
 
   post '/projects/:id/txns' => 'txns#create', as: 'new_txn'
+
+  
+  get '/transaction' => 'txns#show', as: 'txn'
+
+
 end
