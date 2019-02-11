@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
         if !current_user
             @navuser = 'Login'
         else
-            @navuser = "Hello " + current_user.email
+            @navuser = "Hi " + current_user.email
             @navuser = @navuser.slice(0..(@navuser.index("@")-1))
             puts @navuser
         end
@@ -25,6 +25,8 @@ class ProjectsController < ApplicationController
         elsif (params[:sector_ids].length > 1 )
             @project = Project.where(sector_id: params[:sector_ids])
         end
+        puts "helloooooo"
+        # puts @project.funded_amt
         puts @project
     end
 
@@ -35,7 +37,7 @@ class ProjectsController < ApplicationController
     @sectors = Sector.all
     @areas = Area.all
     @project.user_id = current_user.id
-    @navuser = "Hello " + current_user.email
+    @navuser = "Hi " + current_user.email
     @navuser = @navuser.slice(0..(@navuser.index("@")-1))
   end
 
@@ -47,7 +49,7 @@ class ProjectsController < ApplicationController
     @areas = Area.all
     @project = Project.new(project_params)
     @project.user_id = current_user.id
-    @navuser = "Hello " + current_user.email
+    @navuser = "Hi " + current_user.email
     @navuser = @navuser.slice(0..(@navuser.index("@")-1))
 
         if @project.save
@@ -69,7 +71,7 @@ class ProjectsController < ApplicationController
         @pct_left = 100-@pct_total
         @days_left =  (@project.funding_close_date - Date.today).to_i
         @target = @project.funding_target.to_i
-        @navuser = "Hello " + current_user.email
+        @navuser = "Hi " + current_user.email
         @navuser = @navuser.slice(0..(@navuser.index("@")-1))
   end
 
@@ -79,7 +81,7 @@ class ProjectsController < ApplicationController
         @sectors = Sector.all
         @areas = Area.all
         @project = Project.find(params[:id])
-        @navuser = "Hello " + current_user.email
+        @navuser = "Hi " + current_user.email
         @navuser = @navuser.slice(0..(@navuser.index("@")-1))
     end
 
@@ -101,7 +103,7 @@ private
 
   def project_params
 
-    params.require(:project).permit(:name, :objective, :funding_start_date, :funding_close_date, :funding_target, :contact_name, :company_name, :telephone, :email, :image, :video, :website, :facebook, :content_project, :content_company, :content_financials, :content_reports, :faq, :user_id, :sector_id, :area_id, :unit_id, :txn_ids => [])
+    params.require(:project).permit(:name, :objective, :funding_start_date, :funding_close_date, :funding_target, :contact_name, :company_name, :telephone, :email, :image, :video, :website, :facebook, :content_project, :content_company, :content_financials, :content_reports, :faq, :user_id, :sector_id, :area_id, :unit_id, :funded_amt, :txn_ids => [])
   end
     def navuser_params
         params.require(:navuser).permit(:email)
