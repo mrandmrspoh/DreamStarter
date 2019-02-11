@@ -30,12 +30,14 @@
     <div class="col-9">
         <div class="row">
           <% @project.each do |project| %>
-          <div class='col-sm-6  col-lg-4'>
+          <div class='col-8 col-sm-6  col-lg-4'>
             <div class="card d-inline-block " style=" height:33rem;">
               <img class="card-img-top" src=<%= project.image %> alt="Card image cap"style=" height:15rem;">
               <div class="card-body">
                 <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax= "100" ></div>
+                  <div class="progress-bar" role="progressbar" style="width: <%= project.funded_amt.to_i/project.funding_target.to_i %>%;" aria-valuenow= <%= project.funded_amt.to_i/project.funding_target.to_i %> aria-valuemin="0" aria-valuemax= "100" >
+                      <%= puts (project.funded_amt.to_i/project.funding_target.to_i) %>
+                  </div>
                 </div>
               <h5 class="card-title"><%= project.name %></h5>
               <p class="card-text"><%= project.company_name %></p>
