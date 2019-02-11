@@ -2,6 +2,9 @@ class TxnsController < ApplicationController
 
   def create
     @txn = Txn.new(txn_params)
+    @project = @txn.project
+    @project.funded_amt = @txn.amount
+    @project.save
     @txn.save
     redirect_to project_path
   end
@@ -23,6 +26,7 @@ private
   def navuser_params
     params.require(:navuser).permit(:email)
   end
+
 
 end
 
