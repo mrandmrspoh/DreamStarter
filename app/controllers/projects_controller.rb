@@ -67,7 +67,7 @@ class ProjectsController < ApplicationController
         @pct_total =  @pct_float.to_i
         @left = @project.funding_target.to_i - @total.to_i
         @pct_left = 100-@pct_total
-        @days_left =  @project.funding_close_date - Date.today
+        @days_left =  (@project.funding_close_date - Date.today).to_i
         @target = @project.funding_target.to_i
         @navuser = "Hello " + current_user.email
         @navuser = @navuser.slice(0..(@navuser.index("@")-1))

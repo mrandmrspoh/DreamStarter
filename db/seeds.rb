@@ -177,7 +177,7 @@ user_id: '1'
 Project.create(name: 'CleanseBot - World First Bacteria Killing Robot',
 objective: 'Smart Robot is Pocket-sized and ready for travel. Meet your new best travel buddy!',
 funding_start_date: '2019-01-01',
-funding_close_date: '2019-01-31',
+funding_close_date: '2019-02-28',
 funding_target: '100000',
 contact_name: 'cleansebot',
 company_name: 'ibotbot',
