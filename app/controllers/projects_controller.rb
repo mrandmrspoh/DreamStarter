@@ -66,7 +66,10 @@ class ProjectsController < ApplicationController
         @total = Txn.where(project_id: params[:id]).sum(:amount).to_i
         @pct_float = @total/@project.funding_target*100
         @pct_total =  @pct_float.to_i
-        @left = @project.funding_target.to_i - @total.to_i
+        @left = if @project.funding_target.to_i - @total.to_i <0
+                then 0
+                else @project.funding_target.to_i - @total.to_i
+                end
         @pct_left = 100-@pct_total
         @days_left =  (@project.funding_close_date - Date.today).to_i
         @target = @project.funding_target.to_i
