@@ -93,6 +93,10 @@ class ProjectsController < ApplicationController
 
     def destroy
         @project = Project.find(params[:id])
+        @txn = Txn.where(project_id: params[:id])
+        @txn.each do |txn|
+            txn.destroy
+        end
         @project.destroy
         redirect_to root_path
     end
