@@ -6,6 +6,8 @@ class Txns < ActiveRecord::Migration[5.2]
         t.references :user
         t.references :project
         t.references :unit
+        t.references :area
+        t.references :sector
         t.timestamps
     end
 

@@ -3,10 +3,12 @@
   <thead class="thead-dark justify-content-center">
     <tr>
       <th scope="col">Project Name</th>
+      <th scope="col">Country</th>
+      <th scope="col">Sector</th>
       <th scope="col">Currency</th>
       <th scope="col">Amount</th>
-      <th scope="col">Date</th>      
-      <th scope="col">Project</th>             
+      <th scope="col">Date</th>
+      <th scope="col">Project</th>
     </tr>
   </thead>
   <tbody>
@@ -14,12 +16,14 @@
     <% @txns.each do |txn| %>
       <tr>
         <td><%= txn.project.name %></td>
-        <td>$</td>
-        <td><%= txn.amount %></td> 
+        <td><%= txn.area.name %></td>
+        <td><%= txn.sector.name %></td>
+        <td><%= txn.unit.abbr %></td>
+        <td><%= txn.amount %></td>
         <td><%= txn.created_at.strftime("%d/%m/%Y")  %></td>
-        <td><%= link_to 'Show', project_path(txn)%></td>
+        <td><%= link_to 'Show', project_path(txn.project_id) %></td>
       </tr>
-    <% end %>    
+    <% end %>
   </tbody>
 </table>
 </div>
