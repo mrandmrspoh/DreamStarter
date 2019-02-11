@@ -3,7 +3,7 @@ class TxnsController < ApplicationController
   def create
     @txn = Txn.new(txn_params)
     @project = @txn.project
-    @project.funded_amt = @txn.amount
+    @project.funded_amt = @project.funded_amt+ @txn.amount
     @project.save
     @txn.save
     redirect_to project_path
