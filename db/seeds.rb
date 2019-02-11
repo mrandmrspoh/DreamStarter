@@ -184,7 +184,7 @@ company_name: 'ibotbot',
 telephone: '+65 1234567',
 email: 'ibotbot@email.com',
 image: 'https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/c_fill,f_auto,h_240,w_320/v1547741776/sfa2rc5epf3dowuhqgiy.jpg',
-video: 'https://youtu.be/yOWw8ZoJPWw',
+video: 'https://www.youtube.com/embed/yOWw8ZoJPWw?enablejsapi=1&amp',
 website: 'https://www.indiegogo.com',
 facebook: 'https://www.indiegogo.com',
 content_project: "<img src ='https://c1.iggcdn.com/indiegogo-media-prod-cld/image/upload/c_limit,w_695/v1546768524/l8hffxolam6calbllw0k.jpg'>
