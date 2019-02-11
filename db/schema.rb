@@ -21,37 +21,6 @@ ActiveRecord::Schema.define(version: 2019_02_07_030307) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "projects", force: :cascade do |t|
-    t.string "name"
-    t.text "objective"
-    t.date "funding_start_date"
-    t.date "funding_close_date"
-    t.decimal "funding_target"
-    t.string "contact_name"
-    t.string "company_name"
-    t.string "telephone"
-    t.string "email"
-    t.text "image"
-    t.text "video"
-    t.text "website"
-    t.text "facebook"
-    t.text "content_project"
-    t.text "content_company"
-    t.text "content_financials"
-    t.text "content_reports"
-    t.text "faq"
-    t.bigint "sector_id"
-    t.bigint "area_id"
-    t.bigint "unit_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["area_id"], name: "index_projects_on_area_id"
-    t.index ["sector_id"], name: "index_projects_on_sector_id"
-    t.index ["unit_id"], name: "index_projects_on_unit_id"
-    t.index ["user_id"], name: "index_projects_on_user_id"
-  end
-
   create_table "sectors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false

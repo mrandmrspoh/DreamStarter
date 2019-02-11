@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
 
   post '/projects/:id/txns' => 'txns#create', as: 'new_txn'
+
+  get '/transaction' => 'txns#show' , as: 'txn'
 end

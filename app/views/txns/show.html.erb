@@ -1,0 +1,48 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Project Name</th>
+      <th scope="col">Amount</th>  
+      <th scope="col">Project</th>             
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @txns.each do |txn| %>
+      <tr>
+        <td><%= txn.project.name %></td>
+        <td><%= txn.amount %></td>   
+        <td><%= link_to 'Show', project_path(txn)%></td>
+      </tr>
+    <% end %>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

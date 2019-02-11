@@ -8,6 +8,7 @@ class TxnsController < ApplicationController
 
   def show
     @txn = Txn.find(params[:id])
+    @txns = Txn.where("user_id=?", current_user.id)
   end
 
 private
