@@ -25,9 +25,7 @@ class ProjectsController < ApplicationController
         elsif (params[:sector_ids].length > 1 )
             @project = Project.where(sector_id: params[:sector_ids])
         end
-        puts "helloooooo"
-        # puts @project.funded_amt
-        puts @project
+
     end
 
 
