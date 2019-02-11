@@ -34,6 +34,7 @@ class ProjectsController < ApplicationController
     @units = Unit.all
     @sectors = Sector.all
     @areas = Area.all
+
     @project.user_id = current_user.id
     @navuser = "Hi " + current_user.email
     @navuser = @navuser.slice(0..(@navuser.index("@")-1))

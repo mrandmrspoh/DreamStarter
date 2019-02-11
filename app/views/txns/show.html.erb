@@ -1,0 +1,38 @@
+<div class="d-flex p-4 bd-highlight ">
+<table class="table">
+  <thead class="thead-dark justify-content-center">
+    <tr>
+      <th scope="col">Project Name</th>
+      <th scope="col">Currency</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Date</th>      
+      <th scope="col">Project</th>             
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @txns.each do |txn| %>
+      <tr>
+        <td><%= txn.project.name %></td>
+        <td>$</td>
+        <td><%= txn.amount %></td> 
+        <td><%= txn.created_at.strftime("%d/%m/%Y")  %></td>
+        <td><%= link_to 'Show', project_path(txn)%></td>
+      </tr>
+    <% end %>    
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
